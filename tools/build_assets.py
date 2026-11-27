@@ -85,8 +85,10 @@ with open(f"{fav}/site.webmanifest", "w") as f:
 pf = f"{A}/perfil"
 for s in (1080, 800, 400, 200):
     mark_on(s, AZUL, scale=0.62).save(f"{pf}/perfil-mangos-{s}.png")
-mark_on(1080, AZUL, scale=0.62, dot=VERDE).save(f"{pf}/perfil-mangos-destaque-1080.png")
-mark_on(1080, ROSA, scale=0.62).save(f"{pf}/perfil-mangos-rosa-1080.png")
+VAR = [("azul", AZUL, "verde", VERDE), ("azul", AZUL, "rosa", ROSA), ("rosa", ROSA, "branco", BRANCO),
+       ("verde", VERDE, "azul", AZUL), ("branco", BRANCO, "azul", AZUL), ("branco", BRANCO, "rosa", ROSA)]
+for fn, fc, mn, mc in VAR:   # m e ponto sempre na mesma cor
+    mark_on(1080, fc, fg=mc, scale=0.62).save(f"{pf}/perfil-mangos-fundo-{fn}-marca-{mn}-1080.png")
 # prévia em círculo
 def circ(im):
     m = Image.new("L", im.size, 0); ImageDraw.Draw(m).ellipse([0,0,im.width-1,im.height-1], fill=255)
