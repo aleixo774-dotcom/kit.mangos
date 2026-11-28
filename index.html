@@ -282,6 +282,53 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 .ftr .slg b{color:var(--lime);font-weight:800}
 .sep{height:4px;background:linear-gradient(90deg,var(--pink) 0%,#ff6b35 25%,#ffbe00 50%,var(--lime) 75%,var(--navy) 100%)}
 
+
+/* uniformes */
+.uni{display:grid;gap:18px}
+@media(min-width:760px){.uni{grid-template-columns:1fr 1fr}}
+.um{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh1);overflow:hidden;display:flex;flex-direction:column}
+.um .stage{background:var(--grey);padding:18px 18px 8px;display:grid;place-items:center}
+.um .stage img{width:min(300px,100%);height:auto;aspect-ratio:600/620}
+.um .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:14px}
+.um h3{font-size:1.15rem}
+.um .tags{display:flex;gap:6px;flex-wrap:wrap}
+.dots{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dots small{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.dot{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--line);transition:box-shadow .2s,transform .2s}
+.dot:hover{transform:scale(1.08)}
+.dot[aria-pressed="true"]{box-shadow:0 0 0 2.5px var(--pink)}
+.ficha{display:grid;gap:6px;font-size:.86rem}
+.ficha div{display:grid;grid-template-columns:104px 1fr;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.ficha div:last-child{border-bottom:0}
+.ficha dt{font-weight:800;color:var(--navy);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.ficha dd{color:var(--muted);margin:0}
+.fab{display:grid;gap:18px}
+@media(min-width:900px){.fab{grid-template-columns:repeat(3,1fr)}}
+.fab .card h3{margin:8px 0 10px}
+.fab .card p{font-size:.88rem;color:var(--muted);margin-top:8px}
+.fab ul{list-style:none;padding:0;display:grid;gap:6px;margin-top:10px;font-size:.86rem;color:var(--muted)}
+.fab ul li::before{content:"•";color:var(--pink);font-weight:900;margin-right:8px}
+.cor-silk{display:grid;gap:18px}
+@media(min-width:900px){.cor-silk{grid-template-columns:repeat(3,1fr)}}
+.cs{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh1)}
+.cs .top{padding:18px 20px;display:flex;gap:14px;align-items:center}
+.cs .top .big{width:64px;height:64px;border-radius:16px;flex:none;border:1px solid rgba(0,0,0,.08)}
+.cs .top small{display:block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cs .top b{color:var(--navy);font-size:1.02rem}
+.cs .refs{padding:4px 20px 18px;display:grid;gap:8px}
+.ref{display:flex;align-items:center;gap:12px;font-size:.84rem;color:var(--muted);padding:8px 0;border-top:1px solid var(--line)}
+.ref i{width:30px;height:30px;border-radius:8px;flex:none;border:1px solid rgba(0,0,0,.08)}
+.ref b{color:var(--navy);display:block;font-size:.88rem}
+.ref em{font-style:normal;margin-left:auto;font-size:.72rem;font-weight:800;color:var(--navy);background:var(--grey);border:1px solid var(--line);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.ref.ok em{background:var(--navy);color:var(--lime);border-color:var(--navy)}
+.ref.bad{opacity:.9}
+.ref.bad em{background:#fff5f8;color:var(--pink);border-color:#f5c6d8}
+.warn{display:flex;gap:12px;background:#fff5f8;border:1px solid #f5c6d8;border-radius:14px;padding:16px 20px;font-size:.88rem;color:var(--muted);margin-top:18px}
+.warn b{color:var(--pink)}
+.warn .ic{color:var(--pink);margin-top:3px}
+.pecas{margin-top:22px}
+.chipsw{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy)}
+.chipsw i{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(0,0,0,.15);display:inline-block}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:.85rem;opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:80;box-shadow:0 14px 40px -10px rgba(1,1,70,.5)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media(max-width:560px){section{padding:56px 0}.type-hero{padding:28px 22px}.about .big{padding:26px 22px}}
@@ -309,7 +356,7 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Mangos, início do kit"><img src="assets/logos/mangos-logo-azul-500.png?v=3" alt="mangos." width="130" height="25"></a>
     <nav class="nav" aria-label="Seções do kit">
-      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Foto de perfil</a><a href="#redes">Redes sociais</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
+      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Foto de perfil</a><a href="#redes">Redes sociais</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#uniformes">Uniformes</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
     </nav>
     <div class="sp"></div>
     <a class="btn btn-navy" href="downloads/mangos-kit-completo.zip" download><svg class="ic"><use href="#i-dl"/></svg><span class="lbl">Baixar kit completo</span></a>
@@ -551,43 +598,10 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 <section id="redes">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">05 · Padronização nas redes</span>
-      <h2>Mesmo nome, mesma foto, mesma bio.</h2>
-      <p>Para a Mangos ser encontrada e reconhecida em qualquer canal, mantenha estes elementos idênticos.</p>
+      <span class="ey">05 · Redes sociais</span>
+      <h2>Capas e banners.</h2>
+      <p>Modelos prontos nos formatos de cada rede. Para a foto de perfil, veja a seção anterior.</p>
     </div>
-    <div class="grid g2" style="align-items:start">
-      <div class="net">
-        <div class="bio">
-          <small>Bio padrão (≈ 115 caracteres)</small>
-          <p id="bio1">Crédito, seguros e consórcio com atendimento humano. Correspondente bancário e corretora de seguros · Batatais/SP</p>
-          <button class="btn btn-ghost btn-sm copy" data-copy-target="bio1"><svg class="ic"><use href="#i-copy"/></svg>Copiar</button>
-        </div>
-        <div class="bio" style="background:#0b0b6b">
-          <small>Bio curta (TikTok, X, Telegram)</small>
-          <p id="bio2">Crédito, seguros e consórcio. você acredita, a gente realiza! 📍 Batatais/SP</p>
-          <button class="btn btn-ghost btn-sm copy" data-copy-target="bio2"><svg class="ic"><use href="#i-copy"/></svg>Copiar</button>
-        </div>
-        <div class="bio" style="background:#16165a">
-          <small>Sobre (LinkedIn, Facebook, Google Meu Negócio)</small>
-          <p id="bio3">A Mangos é correspondente bancário e corretora de seguros em Batatais/SP, com atendimento em todo o Brasil. Comparamos ofertas de instituições parceiras em crédito, seguros e consórcio, com atendimento humano e transparente, sem letra miúda. você acredita, a gente realiza!</p>
-          <button class="btn btn-ghost btn-sm copy" data-copy-target="bio3"><svg class="ic"><use href="#i-copy"/></svg>Copiar</button>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Checklist de padronização</h3>
-        <ul class="ck" style="margin-top:16px">
-          <li><div><b>Nome de exibição:</b> "Mangos" (no LinkedIn e Google: "Mangos · Correspondente Bancário e Corretora de Seguros")</div></li>
-          <li><div><b>@usuário igual em todas as redes:</b> hoje <span class="mono">@mangosoficial</span>. Se algum estiver ocupado, use <span class="mono">@mangosoficial</span> + sufixo curto, nunca números aleatórios</div></li>
-          <li><div><b>Foto de perfil:</b> "m." azul (1080 px) em todas</div></li>
-          <li><div><b>Capa/banner:</b> modelos prontos abaixo</div></li>
-          <li><div><b>Link na bio:</b> mangosassessoria.com.br (ou WhatsApp, em canais de atendimento)</div></li>
-          <li><div><b>Categoria:</b> "Corretora de seguros" onde houver opção (Facebook, Google) e "Correspondente bancário" como categoria secundária</div></li>
-          <li><div><b>Dados fixos no rodapé/sobre:</b> telefone, e-mail, endereço, horário, CNPJ e SUSEP (ver seção Contato)</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 style="margin:42px 0 16px">Capas e banners</h3>
     <div class="grid g2">
       <div class="cover"><img src="assets/social/capa-linkedin-1584x396.png?v=3" alt="Capa LinkedIn" loading="lazy"><div class="meta"><p><b>LinkedIn</b> · 1584 × 396</p><a class="chip" href="assets/social/capa-linkedin-1584x396.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
       <div class="cover"><img src="assets/social/capa-facebook-1640x624.png?v=3" alt="Capa Facebook" loading="lazy"><div class="meta"><p><b>Facebook</b> · 1640 × 624 (vale para Google Meu Negócio, recortando)</p><a class="chip" href="assets/social/capa-facebook-1640x624.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
@@ -661,11 +675,150 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   </div>
 </section>
 
-<!-- USO -->
-<section id="uso" class="alt">
+<!-- UNIFORMES -->
+<section id="uniformes" class="alt">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">08 · Diretrizes de uso</span>
+      <span class="ey">08 · Uniformes</span>
+      <h2>Camisetas e polos da equipe.</h2>
+      <p>Modelos para baixar, ficha técnica, tecidos e a cor exata do silk, para a confecção sair igual à marca.</p>
+    </div>
+
+    <div class="uni">
+      <article class="um" data-modelo="camiseta-tradicional">
+        <div class="stage"><img src="assets/uniformes/modelos/camiseta-tradicional-preta-silk-verde.png?v=2" alt="Camiseta Tradicional, frente, com o logo mangos. no peito esquerdo" width="300" height="310" loading="lazy"></div>
+        <div class="body">
+          <div><h3>Camiseta Tradicional</h3><div class="tags" style="margin-top:8px"><span class="pill pk">Unissex / masculina</span><span class="pill">Camiseta</span><span class="pill">Malha fria PV</span></div></div>
+          <div class="dots" role="group" aria-label="Cor do tecido"><small>Tecido</small><button class="dot" type="button" aria-pressed="true" data-tec="preta" style="background:#111111" title="Preto" aria-label="Preto"></button><button class="dot" type="button" aria-pressed="false" data-tec="branca" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-tec="azul" style="background:#010146" title="Azul marinho" aria-label="Azul marinho"></button></div>
+          <div class="dots" role="group" aria-label="Cor do silk"><small>Silk</small><span class="silkdots"><button class="dot" type="button" aria-pressed="true" data-silk="verde" style="background:#b7fe00" title="Verde neon" aria-label="Verde neon"></button><button class="dot" type="button" aria-pressed="false" data-silk="branco" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-silk="rosa" style="background:#db0063" title="Rosa" aria-label="Rosa"></button></span></div>
+          <div class="chips"><a class="chip" data-fmt="png" href="assets/uniformes/modelos/camiseta-tradicional-preta-silk-verde.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a><a class="chip" data-fmt="svg" href="assets/uniformes/modelos/camiseta-tradicional-preta-silk-verde.svg" download><svg class="ic"><use href="#i-dl"/></svg>SVG (vetor)</a></div>
+          <dl class="ficha"><div><dt>Tecido</dt><dd>Malha Fria PV (67% poliéster / 33% viscose, anti-pilling)</dd></div><div><dt>Modelagem</dt><dd>Reta, tradicional e confortável</dd></div><div><dt>Gola</dt><dd>Careca redonda em ribana</dd></div><div><dt>Manga</dt><dd>Curta</dd></div><div><dt>Aplicação</dt><dd>Silk-screen, 1 cor</dd></div><div><dt>Posição</dt><dd>Peito esquerdo · ~8,5 cm de largura</dd></div></dl>
+        </div>
+      </article>
+      <article class="um" data-modelo="baby-look">
+        <div class="stage"><img src="assets/uniformes/modelos/baby-look-preta-silk-verde.png?v=2" alt="Baby Look, frente, com o logo mangos. no peito esquerdo" width="300" height="310" loading="lazy"></div>
+        <div class="body">
+          <div><h3>Baby Look</h3><div class="tags" style="margin-top:8px"><span class="pill pk">Feminina</span><span class="pill">Camiseta</span><span class="pill">Malha fria PV</span></div></div>
+          <div class="dots" role="group" aria-label="Cor do tecido"><small>Tecido</small><button class="dot" type="button" aria-pressed="true" data-tec="preta" style="background:#111111" title="Preto" aria-label="Preto"></button><button class="dot" type="button" aria-pressed="false" data-tec="branca" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-tec="azul" style="background:#010146" title="Azul marinho" aria-label="Azul marinho"></button></div>
+          <div class="dots" role="group" aria-label="Cor do silk"><small>Silk</small><span class="silkdots"><button class="dot" type="button" aria-pressed="true" data-silk="verde" style="background:#b7fe00" title="Verde neon" aria-label="Verde neon"></button><button class="dot" type="button" aria-pressed="false" data-silk="branco" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-silk="rosa" style="background:#db0063" title="Rosa" aria-label="Rosa"></button></span></div>
+          <div class="chips"><a class="chip" data-fmt="png" href="assets/uniformes/modelos/baby-look-preta-silk-verde.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a><a class="chip" data-fmt="svg" href="assets/uniformes/modelos/baby-look-preta-silk-verde.svg" download><svg class="ic"><use href="#i-dl"/></svg>SVG (vetor)</a></div>
+          <dl class="ficha"><div><dt>Tecido</dt><dd>Malha Fria PV (67% poliéster / 33% viscose, anti-pilling)</dd></div><div><dt>Modelagem</dt><dd>Acinturada</dd></div><div><dt>Gola</dt><dd>Redonda feminina suave em ribana</dd></div><div><dt>Manga</dt><dd>Curta delicada</dd></div><div><dt>Aplicação</dt><dd>Silk-screen, 1 cor</dd></div><div><dt>Posição</dt><dd>Peito esquerdo · ~8,0 cm de largura</dd></div></dl>
+        </div>
+      </article>
+      <article class="um" data-modelo="polo-masculina">
+        <div class="stage"><img src="assets/uniformes/modelos/polo-masculina-preta-silk-verde.png?v=2" alt="Polo Masculina, frente, com o logo mangos. no peito esquerdo" width="300" height="310" loading="lazy"></div>
+        <div class="body">
+          <div><h3>Polo Masculina</h3><div class="tags" style="margin-top:8px"><span class="pill pk">Unissex / masculina</span><span class="pill">Polo</span><span class="pill">Piquê PV ou Malha fria PV</span></div></div>
+          <div class="dots" role="group" aria-label="Cor do tecido"><small>Tecido</small><button class="dot" type="button" aria-pressed="true" data-tec="preta" style="background:#111111" title="Preto" aria-label="Preto"></button><button class="dot" type="button" aria-pressed="false" data-tec="branca" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-tec="azul" style="background:#010146" title="Azul marinho" aria-label="Azul marinho"></button></div>
+          <div class="dots" role="group" aria-label="Cor do silk"><small>Silk</small><span class="silkdots"><button class="dot" type="button" aria-pressed="true" data-silk="verde" style="background:#b7fe00" title="Verde neon" aria-label="Verde neon"></button><button class="dot" type="button" aria-pressed="false" data-silk="branco" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-silk="rosa" style="background:#db0063" title="Rosa" aria-label="Rosa"></button></span></div>
+          <div class="chips"><a class="chip" data-fmt="png" href="assets/uniformes/modelos/polo-masculina-preta-silk-verde.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a><a class="chip" data-fmt="svg" href="assets/uniformes/modelos/polo-masculina-preta-silk-verde.svg" download><svg class="ic"><use href="#i-dl"/></svg>SVG (vetor)</a></div>
+          <dl class="ficha"><div><dt>Tecido</dt><dd>Opção A: Malha Piquê PV · Opção B: Malha Fria PV (ver tecidos)</dd></div><div><dt>Modelagem</dt><dd>Reta, tradicional</dd></div><div><dt>Gola</dt><dd>Gola polo com plaqueta de 3 botões, tom sobre tom</dd></div><div><dt>Manga</dt><dd>Curta, punho em retilínea ou ribana</dd></div><div><dt>Aplicação</dt><dd>Silk-screen, 1 cor</dd></div><div><dt>Posição</dt><dd>Peito esquerdo · ~8,0 cm de largura</dd></div></dl>
+        </div>
+      </article>
+      <article class="um" data-modelo="polo-feminina">
+        <div class="stage"><img src="assets/uniformes/modelos/polo-feminina-preta-silk-verde.png?v=2" alt="Polo Feminina, frente, com o logo mangos. no peito esquerdo" width="300" height="310" loading="lazy"></div>
+        <div class="body">
+          <div><h3>Polo Feminina</h3><div class="tags" style="margin-top:8px"><span class="pill pk">Feminina</span><span class="pill">Polo</span><span class="pill">Piquê PV ou Malha fria PV</span></div></div>
+          <div class="dots" role="group" aria-label="Cor do tecido"><small>Tecido</small><button class="dot" type="button" aria-pressed="true" data-tec="preta" style="background:#111111" title="Preto" aria-label="Preto"></button><button class="dot" type="button" aria-pressed="false" data-tec="branca" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-tec="azul" style="background:#010146" title="Azul marinho" aria-label="Azul marinho"></button></div>
+          <div class="dots" role="group" aria-label="Cor do silk"><small>Silk</small><span class="silkdots"><button class="dot" type="button" aria-pressed="true" data-silk="verde" style="background:#b7fe00" title="Verde neon" aria-label="Verde neon"></button><button class="dot" type="button" aria-pressed="false" data-silk="branco" style="background:#ffffff" title="Branco" aria-label="Branco"></button><button class="dot" type="button" aria-pressed="false" data-silk="rosa" style="background:#db0063" title="Rosa" aria-label="Rosa"></button></span></div>
+          <div class="chips"><a class="chip" data-fmt="png" href="assets/uniformes/modelos/polo-feminina-preta-silk-verde.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a><a class="chip" data-fmt="svg" href="assets/uniformes/modelos/polo-feminina-preta-silk-verde.svg" download><svg class="ic"><use href="#i-dl"/></svg>SVG (vetor)</a></div>
+          <dl class="ficha"><div><dt>Tecido</dt><dd>Opção A: Malha Piquê PV · Opção B: Malha Fria PV (ver tecidos)</dd></div><div><dt>Modelagem</dt><dd>Acinturada</dd></div><div><dt>Gola</dt><dd>Gola polo feminina com plaqueta de 3 botões, tom sobre tom</dd></div><div><dt>Manga</dt><dd>Curta, punho em retilínea ou ribana</dd></div><div><dt>Aplicação</dt><dd>Silk-screen, 1 cor</dd></div><div><dt>Posição</dt><dd>Peito esquerdo · ~8,0 cm de largura</dd></div></dl>
+        </div>
+      </article>
+    </div>
+    <div class="chips" style="margin-top:18px"><a class="btn btn-navy btn-sm" href="downloads/mangos-uniformes.zip" download><svg class="ic"><use href="#i-dl"/></svg>Todos os modelos e artes (.zip)</a></div>
+
+    <h3 style="font-size:1.25rem;margin:46px 0 6px">Tecidos</h3>
+    <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px">A camiseta segue o tecido já aprovado no último pedido. Para a polo, duas opções.</p>
+    <div class="fab">
+      <div class="card"><span class="pill pk">Camisetas · padrão atual</span><h3>Malha Fria PV</h3><p>67% poliéster / 33% viscose, anti-pilling. Toque macio, caimento leve e boa resistência à lavagem. Cor preta.</p><ul><li>Camiseta Tradicional e Baby Look</li><li>Gola em ribana</li><li>Silk-screen de boa definição</li></ul></div>
+      <div class="card"><span class="pill">Polo · opção A</span><h3>Malha Piquê PV</h3><p>Malha com textura em relevo (piquê), mais corpo e estrutura. Gola e punhos em retilínea. Composição poliéster/viscose, a confirmar com o fornecedor.</p><ul><li>Visual mais social, para atendimento</li><li>A textura pode suavizar detalhes finos do silk: pedir prova</li></ul></div>
+      <div class="card"><span class="pill">Polo · opção B</span><h3>Malha Fria PV</h3><p>Mesmo tecido da camiseta (67% poliéster / 33% viscose, anti-pilling), em modelagem de polo. Superfície lisa e leve.</p><ul><li>Padroniza o tecido de toda a linha</li><li>Silk com a mesma nitidez da camiseta</li></ul></div>
+    </div>
+
+    <h3 style="font-size:1.25rem;margin:46px 0 6px">Cor do silk</h3>
+    <p style="font-size:.9rem;color:var(--muted);max-width:52em">A cor oficial é definida em tela (RGB). No silk, a tinta é escolhida por catálogo, então use as referências abaixo, sempre confirmando com <b>prova física no tecido</b> antes da produção. A diferença (ΔE) mostra o quanto cada referência se afasta da cor da marca: quanto menor, mais próxima.</p>
+    <div class="cor-silk" style="margin-top:20px">
+      <div class="cs">
+        <div class="top"><span class="big" style="background:#b7fe00"></span><div><small>Verde Mangos · logo em peça preta ou azul marinho</small><b>#b7fe00 · RGB 183, 254, 0</b></div></div>
+        <div class="refs">
+          <div class="ref ok"><i style="background:#97d700"></i><div><b>Pantone 375 C</b>mais próxima entre as sólidas</div><em>ΔE 17</em></div>
+          <div class="ref"><i style="background:#d0df00"></i><div><b>Pantone 389 C</b>mais amarelada</div><em>ΔE 25</em></div>
+          <div class="ref bad"><i style="background:#44d62c"></i><div><b>Pantone 802 C</b>usada no pedido anterior: bem mais verde</div><em>ΔE 33</em></div>
+          <div class="ref bad"><i style="background:#a3e635"></i><div><b>#A3E635</b>hex do pedido anterior: outra cor (não é o 802 C nem a marca)</div><em>evitar</em></div>
+        </div>
+      </div>
+      <div class="cs">
+        <div class="top"><span class="big" style="background:#db0063"></span><div><small>Rosa Mangos · logo em peça branca ou preta</small><b>#db0063 · RGB 219, 0, 99</b></div></div>
+        <div class="refs">
+          <div class="ref ok"><i style="background:#ce0058"></i><div><b>Pantone Rubine Red C</b>mais próxima, levemente mais escura</div><em>ΔE 5</em></div>
+          <div class="ref"><i style="background:#ce0f69"></i><div><b>Pantone 214 C</b>alternativa</div><em>ΔE 8</em></div>
+          <div class="ref"><i style="background:#e31c79"></i><div><b>Pantone 213 C</b>alternativa, mais clara</div><em>ΔE 9</em></div>
+        </div>
+      </div>
+      <div class="cs">
+        <div class="top"><span class="big" style="background:#010146"></span><div><small>Azul Noturno · logo em peça branca</small><b>#010146 · RGB 1, 1, 70</b></div></div>
+        <div class="refs">
+          <div class="ref ok"><i style="background:#211551"></i><div><b>Pantone 274 C</b>mais próxima</div><em>ΔE 10</em></div>
+          <div class="ref"><i style="background:#001e62"></i><div><b>Pantone 2758 C</b>alternativa, mais azulada</div><em>ΔE 12</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn"><svg class="ic"><use href="#i-sh"/></svg><div><b>Verde neon:</b> o #b7fe00 é mais vibrante que qualquer Pantone de cor sólida. Peça ao silk uma <b>tinta neon/fluorescente verde-limão ajustada a esse tom</b>, com o 375 C como referência de catálogo. Se o fornecedor trabalhar com a biblioteca de neons, compare também o 802 C e o 809 C na prova. Os valores em hex dos Pantone são simulações de tela.</div></div>
+
+    <div class="tw pecas">
+      <table class="tbl">
+        <thead><tr><th>Tecido</th><th>Cor do silk permitida</th><th>Base branca</th></tr></thead>
+        <tbody>
+          <tr><td><span class="chipsw"><i style="background:#111"></i>Preto</span></td><td><span class="chipsw"><i style="background:#fff"></i>Branco</span> · <span class="chipsw"><i style="background:#b7fe00"></i>Verde neon</span> · <span class="chipsw"><i style="background:#db0063"></i>Rosa</span></td><td>Sim, nas três cores</td></tr>
+          <tr><td><span class="chipsw"><i style="background:#fff"></i>Branco</span></td><td><span class="chipsw"><i style="background:#010146"></i>Azul noturno</span> · <span class="chipsw"><i style="background:#db0063"></i>Rosa</span></td><td>Não</td></tr>
+          <tr><td><span class="chipsw"><i style="background:#010146"></i>Azul marinho</span></td><td><span class="chipsw"><i style="background:#fff"></i>Branco</span> · <span class="chipsw"><i style="background:#b7fe00"></i>Verde neon</span></td><td>Sim, nas duas cores</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn" style="margin-top:14px"><svg class="ic"><use href="#i-sh"/></svg><div><b>Somente estes três tecidos:</b> preto, branco e azul marinho. Não usar tecidos de outras cores.</div></div>
+
+    <div class="grid g2" style="margin-top:34px;align-items:start">
+      <div class="card">
+        <h3>Arte vetorial para o silk</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:6px 0 14px">Apenas o <b>"mangos."</b>, sem o subtítulo, em 1 cor. O vetor (SVG e PDF) é o arquivo que a gráfica precisa para gravar a tela.</p>
+        <div class="chips" style="margin-bottom:10px"><span class="pill">Verde</span><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-verde.svg" download>SVG</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-verde.pdf" download>PDF</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-verde-3000.png" download>PNG 3000</a></div>
+        <div class="chips" style="margin-bottom:10px"><span class="pill pk">Rosa</span><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-rosa.svg" download>SVG</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-rosa.pdf" download>PDF</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-rosa-3000.png" download>PNG 3000</a></div>
+        <div class="chips" style="margin-bottom:10px"><span class="pill">Azul</span><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-azul.svg" download>SVG</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-azul.pdf" download>PDF</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-azul-3000.png" download>PNG 3000</a></div>
+        <div class="chips"><span class="pill">Branco</span><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-branco.svg" download>SVG</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-branco.pdf" download>PDF</a><a class="chip" href="assets/uniformes/arte-silk/mangos-silk-branco-3000.png" download>PNG 3000</a></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Texto para enviar ao fornecedor</h3>
+        <div class="code" id="forn" style="white-space:pre-wrap"><button class="btn btn-ghost btn-sm copy" data-copy-target="forn"><svg class="ic"><use href="#i-copy"/></svg>Copiar</button>UNIFORME MANGOS · ESPECIFICAÇÃO DE SILK
+
+Arte: logotipo "mangos." (somente o lettermark, sem subtítulo), 1 cor. Vetor em anexo (SVG/PDF).
+Aplicação: silk-screen têxtil de alta definição, peito esquerdo, 8,0 cm (baby look e polo) ou 8,5 cm (camiseta) de largura.
+
+Tecidos permitidos: preto, branco e azul marinho (nenhuma outra cor).
+Cores de silk por tecido:
+· Tecido preto: branco, verde neon ou rosa
+· Tecido branco: azul noturno ou rosa
+· Tecido azul marinho: branco ou verde neon
+
+Verde neon Mangos: RGB 183, 254, 0 (#b7fe00). Tinta neon/fluorescente verde-limão ajustada a esse tom. Referência de catálogo: Pantone 375 C. NÃO usar Pantone 802 C nem #A3E635 (são outras cores).
+Rosa Mangos: RGB 219, 0, 99 (#db0063). Referência: Pantone Rubine Red C.
+Azul noturno Mangos: RGB 1, 1, 70 (#010146). Referência: Pantone 274 C.
+Em tecido preto ou azul marinho, aplicar base branca sob a tinta.
+
+Tecido: Malha Fria PV preta (67% poliéster / 33% viscose, anti-pilling).
+Polo: conforme opção definida (Piquê PV ou Malha Fria PV).
+
+Enviar prova física (ou foto do silk no tecido) para aprovação antes de produzir.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USO -->
+<section id="uso">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="ey">09 · Diretrizes de uso</span>
       <h2>Para a marca parecer sempre a mesma.</h2>
     </div>
     <div class="ex">
@@ -694,10 +847,10 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 </section>
 
 <!-- CONTATO -->
-<section id="contato">
+<section id="contato" class="alt">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">09 · Dados e canais oficiais</span>
+      <span class="ey">10 · Dados e canais oficiais</span>
       <h2>Informações para usar em qualquer material.</h2>
     </div>
     <div class="ct-grid">
@@ -738,6 +891,26 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
     var a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity=0;document.body.appendChild(a);a.select();
     try{document.execCommand('copy');toast()}catch(e){toast('Não foi possível copiar')}a.remove();
   }
+  var SILK={preta:[["verde","#b7fe00","Verde neon"],["branco","#ffffff","Branco"],["rosa","#db0063","Rosa"]],branca:[["azul","#010146","Azul noturno"],["rosa","#db0063","Rosa"]],azul:[["branco","#ffffff","Branco"],["verde","#b7fe00","Verde neon"]]};
+  document.querySelectorAll('.um').forEach(function(card){
+    var img=card.querySelector('.stage img'),m=card.getAttribute('data-modelo'),tec='preta',silk='verde',box=card.querySelector('.silkdots');
+    function upd(){
+      var n=m+'-'+tec+'-silk-'+silk;
+      img.src='assets/uniformes/modelos/'+n+'.png?v=2';
+      card.querySelectorAll('[data-fmt]').forEach(function(a){a.href='assets/uniformes/modelos/'+n+'.'+a.getAttribute('data-fmt')});
+      card.querySelectorAll('[data-tec]').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-tec')===tec?'true':'false')});
+      box.querySelectorAll('[data-silk]').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-silk')===silk?'true':'false')});
+    }
+    function drawSilk(){
+      box.innerHTML='';
+      SILK[tec].forEach(function(o){var b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('data-silk',o[0]);b.style.background=o[1];b.title=o[2];b.setAttribute('aria-label',o[2]);b.setAttribute('aria-pressed','false');box.appendChild(b)});
+    }
+    card.addEventListener('click',function(e){
+      var t=e.target.closest('[data-tec]'),k=e.target.closest('[data-silk]');
+      if(t){tec=t.getAttribute('data-tec');silk=SILK[tec][0][0];drawSilk();upd()}
+      else if(k){silk=k.getAttribute('data-silk');upd()}
+    });
+  });
   document.addEventListener('click',function(e){
     var c=e.target.closest('[data-copy]');if(c){copy(c.getAttribute('data-copy'));return}
     var b=e.target.closest('[data-copy-target]');if(b){

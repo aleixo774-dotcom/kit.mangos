@@ -8,9 +8,11 @@ fav = glob.glob(f"{A}/favicon/*")
 perfil = [f for f in glob.glob(f"{A}/perfil/*")]
 logos = glob.glob(f"{A}/logos/*")
 capas = [f for f in glob.glob(f"{A}/social/*") if "og-" not in f]
+uni = glob.glob(f"{A}/uniformes/*/*")
+zipit("mangos-uniformes.zip", uni, f"{A}/uniformes")
 zipit("mangos-favicons.zip", fav, f"{A}/favicon")
 zipit("mangos-foto-de-perfil.zip", perfil, f"{A}/perfil")
 zipit("mangos-logos.zip", logos, f"{A}/logos")
 zipit("mangos-capas-redes.zip", capas, f"{A}/social")
-zipit("mangos-kit-completo.zip", fav+perfil+logos+capas, A)
+zipit("mangos-kit-completo.zip", fav+perfil+logos+capas+uni, A)
 for f in sorted(glob.glob(f"{D}/*")): print(os.path.basename(f), os.path.getsize(f)//1024, "KB")
