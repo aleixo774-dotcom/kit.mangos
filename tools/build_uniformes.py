@@ -9,7 +9,10 @@ PW, PH = int(PW), int(PH)
 AZUL, ROSA, VERDE, BRANCO, PRETO = "#010146", "#db0063", "#b7fe00", "#ffffff", "#111111"
 
 # peça -> (hex da peça, cor do silk, nome)
-PECAS = {"preta": (PRETO, VERDE), "branca": (BRANCO, AZUL), "azul": (AZUL, BRANCO), "rosa": (ROSA, BRANCO)}
+# tecidos permitidos e cores de silk permitidas em cada um (1ª opção = padrão)
+PECAS = {"preta": PRETO, "branca": BRANCO, "azul": AZUL}
+SILK = {"preta": ["verde", "branco", "rosa"], "branca": ["azul", "rosa"], "azul": ["branco", "verde"]}
+SILKHEX = {"verde": VERDE, "rosa": ROSA, "azul": AZUL, "branco": BRANCO}
 
 def shade(hexc, amt):
     h = hexc.lstrip("#"); r, g, b = [int(h[i:i+2], 16) for i in (0, 2, 4)]
@@ -40,8 +43,8 @@ def polo_collar(kind, base):
     btn = "".join(f'<circle cx="300" cy="{y}" r="5.2" fill="{dark}"/>' for y in (138, 168, 198))
     return back, L + Rr, plaq, btn
 
-def svg_peca(modelo, cor, with_logo=True):
-    base, silk = PECAS[cor]
+def svg_peca(modelo, cor, silk_nome, with_logo=True):
+    base, silk = PECAS[cor], SILKHEX[silk_nome]
     kind = "reta" if modelo in ("camiseta-tradicional", "polo-masculina") else "acintada"
     polo = modelo.startswith("polo")
     body, armL, armR, hem = BODY[kind]
@@ -90,9 +93,12 @@ def svg_logo(color, bg=None, pad=0.06):
 
 MODELOS = ["camiseta-tradicional", "baby-look", "polo-masculina", "polo-feminina"]
 files = []
+import glob
+for old in glob.glob(f"{U}/modelos/*"): os.remove(old)
 for m in MODELOS:
     for c in PECAS:
-        p = f"{U}/modelos/{m}-{c}.svg"; open(p, "w").write(svg_peca(m, c)); files.append((p, 1200))
+        for sk in SILK[c]:
+            p = f"{U}/modelos/{m}-{c}-silk-{sk}.svg"; open(p, "w").write(svg_peca(m, c, sk)); files.append((p, 1200))
 LOGOS = {"verde": VERDE, "rosa": ROSA, "azul": AZUL, "branco": BRANCO}
 for n, c in LOGOS.items():
     open(f"{U}/arte-silk/mangos-silk-{n}.svg", "w").write(svg_logo(c))
