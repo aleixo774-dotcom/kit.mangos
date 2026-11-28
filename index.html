@@ -272,6 +272,7 @@ h3{font-size:1.05rem;color:var(--navy);letter-spacing:-.01em;line-height:1.3}
 .do .i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:900;color:#fff;flex:none}
 .do.ok .i{background:#2f9e5b}.do.no .i{background:var(--pink)}
 .do b{display:block;font-size:.92rem;color:var(--navy);margin-bottom:2px}
+.do p b{display:inline;margin:0;font-size:inherit}
 .do p{font-size:.84rem;color:var(--muted);line-height:1.55}
 .ex{display:grid;gap:12px;margin-bottom:26px}
 @media(min-width:760px){.ex{grid-template-columns:repeat(4,1fr)}}
@@ -358,6 +359,74 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 .pecas{margin-top:22px}
 .chipsw{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy)}
 .chipsw i{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(0,0,0,.15);display:inline-block}
+
+/* modo escuro */
+.tk{--bg:#fff;--card:#fff;--grey:#f5f5f5;--nbg:#010146;--fg:#010146;--ink:#1a1a1a;--muted:#4d4d6e;--line:#e4e4ec;--pink:#db0063;--lime:#b7fe00;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:16px;align-content:start}
+.tk.tk-d{--bg:#0b0b27;--card:#15153d;--grey:#1c1c4a;--nbg:#23237a;--fg:#eef0ff;--ink:#e7e7f3;--muted:#aeb0cf;--line:rgba(255,255,255,.13);--pink:#ff4593;border-color:rgba(255,255,255,.13)}
+.tk .lbl{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.tk .lbl i{width:8px;height:8px;border-radius:50%;background:var(--pink)}
+.tk .ic{width:1.2em;height:1.2em}
+.tk-pair{display:grid;gap:16px}
+@media(min-width:900px){.tk-pair{grid-template-columns:1fr 1fr}}
+.tk-grp{margin-top:34px}
+.tk-grp>h3{font-size:1.1rem;margin-bottom:4px}
+.tk-grp>p{font-size:.86rem;color:var(--muted);margin-bottom:14px;max-width:54em}
+.tb{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:13px 22px;border-radius:12px;font-weight:700;font-size:.9rem;min-height:46px;white-space:nowrap}
+.tb-blue{background:var(--nbg);color:#fff}
+.tb-lime{background:var(--lime);color:#010146}
+.tb-line{border:1.5px solid var(--fg);color:var(--fg)}
+.tk-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.pcard{position:relative;display:flex;align-items:center;gap:14px;padding:16px 62px 16px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line);overflow:hidden;color:var(--ink)}
+.pcard .ci{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--grey);color:var(--fg)}
+.pcard b{display:block;color:var(--fg);font-size:.98rem;line-height:1.25}
+.pcard p{color:var(--muted);font-size:.84rem;line-height:1.4;margin-top:2px}
+.pcard .go{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--grey);color:var(--fg)}
+.pcard.hl{border:1.5px solid var(--fg)}
+.pcard.hl::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--pink)}
+.pcard.hl .go{color:var(--pink)}
+.pcard.bl{background:var(--nbg);border-color:var(--nbg);color:#fff}
+.pcard.bl b{color:#fff}.pcard.bl p{color:rgba(255,255,255,.82)}
+.pcard.bl::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--lime)}
+.pcard.bl .ci{background:rgba(255,255,255,.1);color:var(--lime)}
+.pcard.bl .go{background:rgba(255,255,255,.14);color:var(--lime)}
+.car{display:flex;align-items:center;gap:12px}
+.car .arr{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--nbg);color:#fff}
+.car .mid{flex:1;display:grid;gap:14px;justify-items:center}
+.car .mini{width:100%;max-width:230px;border-radius:16px;background:var(--card);border:1px solid var(--line);padding:14px 16px}
+.car .mini b{display:block;color:var(--fg);font-size:.92rem}.car .mini p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.cdots{display:flex;gap:8px;align-items:center}
+.cdots i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--fg)}
+.cdots i.on{width:22px;border-radius:99px;background:var(--pink);border-color:var(--pink)}
+.segx{display:inline-flex;padding:4px;border-radius:12px;background:var(--grey);border:1px solid var(--line);width:fit-content}
+.segx span{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:9px;font-weight:700;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.segx span.on{background:var(--nbg);color:#fff;box-shadow:0 6px 14px -6px rgba(1,1,70,.6)}
+.segx .ic{width:15px;height:15px}
+.hambx{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.hambx i{display:block;width:18px;height:2px;border-radius:2px;background:var(--fg)}
+.mm{display:grid;gap:8px}
+.mm .a{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--fg);min-height:60px}
+.mm .a .i{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--grey);color:var(--fg)}
+.mm .a b{display:block;font-size:.92rem;line-height:1.25}.mm .a small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35}
+.mm .a .go{margin-left:auto;color:var(--pink);width:18px;height:18px}
+.mm .a.ct{background:var(--nbg);border-color:var(--nbg);color:#fff}
+.mm .a.ct .i{background:var(--lime);color:#010146}
+.mm .a.ct small{color:rgba(255,255,255,.75)}
+.mm .a.ct .go{color:var(--lime)}
+.thx{display:flex;align-items:center;gap:12px;font-weight:700;font-size:.88rem;color:var(--fg)}
+.thx .sw{width:44px;height:26px;border-radius:99px;background:var(--line);position:relative;flex:none}
+.thx .sw i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.tk-d .thx .sw{background:var(--pink)}.tk-d .thx .sw i{transform:translateX(18px)}
+.tk-d .sym{box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+.sym{width:52px;height:52px;border-radius:14px}
+.tokens td .sw2{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--navy)}
+.tokens td .sw2 i{width:26px;height:26px;border-radius:8px;border:1px solid rgba(0,0,0,.15);flex:none;display:inline-block}
+.tokens .var{font-family:ui-monospace,Menlo,monospace;font-size:.76rem;color:var(--muted)}
+.okp{display:inline-block;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px;background:#e8f8ee;color:#14753a;border:1px solid #bfeccf;white-space:nowrap}
+.tw .tbl.tokens{min-width:720px}
+.rules{display:grid;gap:12px;margin-top:18px}
+@media(min-width:760px){.rules{grid-template-columns:1fr 1fr}}
+.sympair{display:grid;gap:16px}
+@media(min-width:760px){.sympair{grid-template-columns:1fr 1fr}}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:.85rem;opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:80;box-shadow:0 14px 40px -10px rgba(1,1,70,.5)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media(max-width:560px){section{padding:56px 0}.type-hero{padding:28px 22px}.about .big{padding:26px 22px}}
@@ -378,6 +447,12 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.3" r=".6" fill="currentColor"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.8-3.8 3.8-6 7.500-6s6.700 2.200 7.500 6"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10l1.500-5h13L20 10M4 10v9h16v-9M4 10c0 1.700 1.400 2.800 2.700 2.800S9.300 11.700 9.300 10c0 1.700 1.300 2.800 2.700 2.800s2.700-1.100 2.700-2.800c0 1.700 1.300 2.800 2.700 2.800S20 11.700 20 10"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chl" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-chr" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.500"/><circle cx="12" cy="12" r="2.500"/><path d="M6.500 9.500v5M17.500 9.500v5"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/></symbol>
 </svg>
 
@@ -385,7 +460,7 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Mangos, início do kit"><img class="logo-full" src="assets/logos/mangos-logo-azul-500.png?v=3" alt="mangos." width="130" height="25"><img class="logo-sym" src="assets/favicon/favicon-96.png?v=3" alt="" width="40" height="40" aria-hidden="true"></a>
     <nav class="nav" aria-label="Seções do kit">
-      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Perfil</a><a href="#redes">Redes</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#uniformes">Uniformes</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
+      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Perfil</a><a href="#redes">Redes</a><a href="#cores">Cores</a><a href="#escuro">Modo escuro</a><a href="#tipografia">Tipografia</a><a href="#uniformes">Uniformes</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
     </nav>
     <div class="sp"></div>
     <button class="hamb" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
@@ -395,7 +470,7 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 
 <div class="drawer" id="mnav" aria-hidden="true">
   <div class="panel"><div class="wrap">
-    <nav aria-label="Menu do kit"><ul><li><a class="it" href="#marca"><small>01</small>Quem somos</a></li><li><a class="it" href="#logos"><small>02</small>Logomarca</a></li><li><a class="it" href="#favicon"><small>03</small>Favicon e ícones</a></li><li><a class="it" href="#perfil"><small>04</small>Foto de perfil</a></li><li><a class="it" href="#redes"><small>05</small>Redes sociais</a></li><li><a class="it" href="#cores"><small>06</small>Cores</a></li><li><a class="it" href="#tipografia"><small>07</small>Tipografia</a></li><li><a class="it" href="#uniformes"><small>08</small>Uniformes</a></li><li><a class="it" href="#uso"><small>09</small>Diretrizes de uso</a></li><li><a class="it" href="#contato"><small>10</small>Contato</a></li></ul></nav>
+    <nav aria-label="Menu do kit"><ul><li><a class="it" href="#marca"><small>01</small>Quem somos</a></li><li><a class="it" href="#logos"><small>02</small>Logomarca</a></li><li><a class="it" href="#favicon"><small>03</small>Favicon e ícones</a></li><li><a class="it" href="#perfil"><small>04</small>Foto de perfil</a></li><li><a class="it" href="#redes"><small>05</small>Redes sociais</a></li><li><a class="it" href="#cores"><small>06</small>Cores</a></li><li><a class="it" href="#escuro"><small>07</small>Modo escuro</a></li><li><a class="it" href="#tipografia"><small>08</small>Tipografia</a></li><li><a class="it" href="#uniformes"><small>09</small>Uniformes</a></li><li><a class="it" href="#uso"><small>10</small>Diretrizes de uso</a></li><li><a class="it" href="#contato"><small>11</small>Contato</a></li></ul></nav>
     <div class="go"><a class="btn btn-pink" href="downloads/mangos-kit-completo.zip" download><svg class="ic"><use href="#i-dl"/></svg>Baixar kit completo (.zip)</a></div>
   </div></div>
 </div>
@@ -683,11 +758,68 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   </div>
 </section>
 
-<!-- TIPOGRAFIA -->
-<section id="tipografia">
+<!-- MODO ESCURO -->
+<section id="escuro">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">07 · Tipografia</span>
+      <span class="ey">07 · Modo escuro</span>
+      <h2>Azul-noite, não preto.</h2>
+      <p>O modo escuro da Mangos é um azul-noite derivado do azul da marca. Os valores abaixo são os mesmos do site oficial (versão de 28/11/2026).</p>
+    </div>
+
+    <div class="rules" style="margin-top:0">
+      <div class="do ok"><span class="i">1</span><div><b>Não é preto</b><p>O fundo é #0B0B27, um azul-noite derivado do azul da marca.</p></div></div>
+      <div class="do ok"><span class="i">2</span><div><b>O azul tem dois papéis</b><p>No escuro eles se separam: <b>cor de texto</b> (#EEF0FF) e <b>cor de fundo</b> de botões, faixas e cartão em destaque (#23237A).</p></div></div>
+      <div class="do ok"><span class="i">3</span><div><b>Verde-limão não muda</b><p>#B7FE00 nos dois temas. O texto sobre verde-limão é sempre azul-escuro #010146.</p></div></div>
+      <div class="do ok"><span class="i">4</span><div><b>Rosa mais vivo no escuro</b><p>#DB0063 vira #FF4593 para continuar legível. Texto sobre azul é branco nos dois temas.</p></div></div>
+    </div>
+
+    <h3 style="font-size:1.25rem;margin:40px 0 12px">Cores por papel</h3>
+    <div class="tw"><table class="tbl tokens">
+      <thead><tr><th>Papel</th><th>Variável no site</th><th>Claro</th><th>Escuro</th></tr></thead>
+      <tbody><tr><td><b>Fundo da página</b></td><td class="var">--bg</td><td><span class="sw2"><i style="background:#FFFFFF"></i><span class="copyable" data-copy="#FFFFFF">#FFFFFF</span></span></td><td><span class="sw2"><i style="background:#0B0B27"></i><span class="copyable" data-copy="#0B0B27">#0B0B27</span></span></td></tr><tr><td><b>Fundo de cartões e caixas</b></td><td class="var">--card</td><td><span class="sw2"><i style="background:#FFFFFF"></i><span class="copyable" data-copy="#FFFFFF">#FFFFFF</span></span></td><td><span class="sw2"><i style="background:#15153D"></i><span class="copyable" data-copy="#15153D">#15153D</span></span></td></tr><tr><td><b>Fundo cinza (seções alternadas, ícones)</b></td><td class="var">--grey</td><td><span class="sw2"><i style="background:#F5F5F5"></i><span class="copyable" data-copy="#F5F5F5">#F5F5F5</span></span></td><td><span class="sw2"><i style="background:#1C1C4A"></i><span class="copyable" data-copy="#1C1C4A">#1C1C4A</span></span></td></tr><tr><td><b>Fundo azul de botões, faixas e cartão em destaque</b></td><td class="var">--nbg</td><td><span class="sw2"><i style="background:#010146"></i><span class="copyable" data-copy="#010146">#010146</span></span></td><td><span class="sw2"><i style="background:#23237A"></i><span class="copyable" data-copy="#23237A">#23237A</span></span></td></tr><tr><td><b>Títulos e texto forte</b></td><td class="var">--fg</td><td><span class="sw2"><i style="background:#010146"></i><span class="copyable" data-copy="#010146">#010146</span></span></td><td><span class="sw2"><i style="background:#EEF0FF"></i><span class="copyable" data-copy="#EEF0FF">#EEF0FF</span></span></td></tr><tr><td><b>Texto corrido</b></td><td class="var">--ink</td><td><span class="sw2"><i style="background:#1A1A1A"></i><span class="copyable" data-copy="#1A1A1A">#1A1A1A</span></span></td><td><span class="sw2"><i style="background:#E7E7F3"></i><span class="copyable" data-copy="#E7E7F3">#E7E7F3</span></span></td></tr><tr><td><b>Texto secundário</b></td><td class="var">--muted</td><td><span class="sw2"><i style="background:#4D4D6E"></i><span class="copyable" data-copy="#4D4D6E">#4D4D6E</span></span></td><td><span class="sw2"><i style="background:#AEB0CF"></i><span class="copyable" data-copy="#AEB0CF">#AEB0CF</span></span></td></tr><tr><td><b>Linhas e bordas</b></td><td class="var">--line</td><td><span class="sw2"><i style="background:#E4E4EC"></i><span class="copyable" data-copy="#E4E4EC">#E4E4EC</span></span></td><td><span class="sw2"><i style="background:linear-gradient(#0b0b27,#0b0b27);position:relative;overflow:hidden"><span style="position:absolute;inset:0;background:rgba(255,255,255,.13)"></span></i>branco 13%</span></td></tr><tr><td><b>Rosa (destaques, frase que troca, bolinha ativa)</b></td><td class="var">--pink</td><td><span class="sw2"><i style="background:#DB0063"></i><span class="copyable" data-copy="#DB0063">#DB0063</span></span></td><td><span class="sw2"><i style="background:#FF4593"></i><span class="copyable" data-copy="#FF4593">#FF4593</span></span></td></tr><tr><td><b>Verde-limão</b></td><td class="var">--lime</td><td><span class="sw2"><i style="background:#B7FE00"></i><span class="copyable" data-copy="#B7FE00">#B7FE00</span></span></td><td><span class="sw2"><i style="background:#B7FE00"></i><span class="copyable" data-copy="#B7FE00">#B7FE00</span></span></td></tr><tr><td><b>Texto sobre azul</b></td><td class="var">—</td><td><span class="sw2"><i style="background:#FFFFFF"></i><span class="copyable" data-copy="#FFFFFF">#FFFFFF</span></span></td><td><span class="sw2"><i style="background:#FFFFFF"></i><span class="copyable" data-copy="#FFFFFF">#FFFFFF</span></span></td></tr><tr><td><b>Texto sobre verde-limão</b></td><td class="var">—</td><td><span class="sw2"><i style="background:#010146"></i><span class="copyable" data-copy="#010146">#010146</span></span></td><td><span class="sw2"><i style="background:#010146"></i><span class="copyable" data-copy="#010146">#010146</span></span></td></tr><tr><td><b>Barra do navegador no celular</b></td><td class="var">theme-color</td><td><span class="sw2"><i style="background:#FFFFFF"></i><span class="copyable" data-copy="#FFFFFF">#FFFFFF</span></span></td><td><span class="sw2"><i style="background:#0B0B27"></i><span class="copyable" data-copy="#0B0B27">#0B0B27</span></span></td></tr></tbody>
+    </table></div>
+
+    <h3 style="font-size:1.25rem;margin:40px 0 6px">Logo e símbolo</h3>
+    <p style="font-size:.9rem;color:var(--muted);max-width:54em;margin-bottom:14px">Logo completa: azul no claro, branca no escuro. O símbolo "m·" (quadrado azul arredondado com o "m" e a bolinha brancos) é o que o site usa no topo do celular, nos dois temas, e é o mesmo da foto de perfil e do ícone da aba. No escuro ele ganha um contorno fino branco com 22% de opacidade para não sumir no fundo.</p>
+    <div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="tk-row" style="gap:22px"><img src="assets/logos/mangos-logo-azul-500.png?v=4" alt="Logo completa azul" width="150" height="29" style="width:150px;height:auto"><img class="sym" src="assets/simbolo/simbolo-mangos-96.png?v=4" alt="Símbolo m·" width="52" height="52"></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="tk-row" style="gap:22px"><img src="assets/logos/mangos-logo-branco-500.png?v=4" alt="Logo completa branca" width="150" height="29" style="width:150px;height:auto"><img class="sym" src="assets/simbolo/simbolo-mangos-96.png?v=4" alt="Símbolo m·" width="52" height="52"></div></div></div>
+    <div class="chips" style="margin-top:14px">
+      <a class="chip" href="assets/simbolo/simbolo-mangos-1024.png" download><svg class="ic"><use href="#i-dl"/></svg>Símbolo PNG 1024</a>
+      <a class="chip" href="assets/simbolo/simbolo-mangos.svg" download>Símbolo SVG</a>
+      <a class="chip" href="assets/simbolo/simbolo-mangos-escuro-1024.png" download><svg class="ic"><use href="#i-dl"/></svg>Símbolo escuro (contorno) PNG 1024</a>
+      <a class="chip" href="assets/simbolo/simbolo-mangos-escuro.svg" download>Símbolo escuro SVG</a>
+      <a class="chip" href="assets/logos/mangos-logo-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Logo branca PNG 2000</a>
+      <a class="chip" href="assets/logos/mangos-logo-branco.svg" download>Logo branca SVG</a>
+      <a class="btn btn-navy btn-sm" href="downloads/mangos-simbolo.zip" download><svg class="ic"><use href="#i-dl"/></svg>Pacote do símbolo (.zip)</a>
+    </div>
+
+    <h3 style="font-size:1.25rem;margin:40px 0 6px">Contraste (obrigatório nos dois temas)</h3>
+    <div class="rules" style="margin-top:10px">
+      <div class="do ok"><span class="i">A</span><div><b>Texto normal: mínimo 4,5:1</b><p>Contraste com o fundo em que o texto está.</p></div></div>
+      <div class="do ok"><span class="i">B</span><div><b>Texto grande: mínimo 3:1</b><p>A partir de 18,6 px, ou 14 px em negrito.</p></div></div>
+    </div>
+    <p style="font-size:.84rem;color:var(--muted);margin:14px 0 12px;max-width:54em">O site passou na conferência automática com essas regras em todos os textos, no claro e no escuro. Abaixo, as razões calculadas para os principais pares de cores.</p>
+    <div class="tw"><table class="tbl tokens">
+      <thead><tr><th>Par (claro)</th><th>Cores</th><th>Razão</th><th>Par escuro</th><th>Razão</th></tr></thead>
+      <tbody><tr><td><b>Título</b></td><td class="var">#010146 em #FFFFFF</td><td><span class="okp">19,2:1 ✓</span></td><td class="var">#EEF0FF em #0B0B27</td><td><span class="okp">17,0:1 ✓</span></td></tr><tr><td><b>Texto corrido</b></td><td class="var">#1A1A1A em #FFFFFF</td><td><span class="okp">17,4:1 ✓</span></td><td class="var">#E7E7F3 em #15153D</td><td><span class="okp">14,2:1 ✓</span></td></tr><tr><td><b>Texto secundário</b></td><td class="var">#4D4D6E em #FFFFFF</td><td><span class="okp">8,1:1 ✓</span></td><td class="var">#AEB0CF em #0B0B27</td><td><span class="okp">9,1:1 ✓</span></td></tr><tr><td><b>Texto secundário em cinza</b></td><td class="var">#4D4D6E em #F5F5F5</td><td><span class="okp">7,4:1 ✓</span></td><td class="var">#AEB0CF em #1C1C4A</td><td><span class="okp">7,5:1 ✓</span></td></tr><tr><td><b>Rosa em cartão</b></td><td class="var">#DB0063 em #FFFFFF</td><td><span class="okp">5,0:1 ✓</span></td><td class="var">#FF4593 em #15153D</td><td><span class="okp">5,4:1 ✓</span></td></tr><tr><td><b>Rosa em cinza</b></td><td class="var">#DB0063 em #F5F5F5</td><td><span class="okp">4,6:1 ✓</span></td><td class="var">#FF4593 em #1C1C4A</td><td><span class="okp">5,0:1 ✓</span></td></tr><tr><td><b>Branco sobre azul</b></td><td class="var">#FFFFFF em #010146</td><td><span class="okp">19,2:1 ✓</span></td><td class="var">#FFFFFF em #23237A</td><td><span class="okp">13,2:1 ✓</span></td></tr><tr><td><b>Azul-escuro sobre verde-limão</b></td><td class="var">#010146 em #B7FE00</td><td><span class="okp">15,7:1 ✓</span></td><td class="var">#010146 em #B7FE00</td><td><span class="okp">15,7:1 ✓</span></td></tr><tr><td><b>Verde-limão sobre azul</b></td><td class="var">#B7FE00 em #010146</td><td><span class="okp">15,7:1 ✓</span></td><td class="var">#B7FE00 em #23237A</td><td><span class="okp">10,8:1 ✓</span></td></tr></tbody>
+    </table></div>
+
+    <h3 style="font-size:1.25rem;margin:46px 0 4px">Componentes nos dois temas</h3>
+    <p style="font-size:.9rem;color:var(--muted);max-width:54em">Exemplos lado a lado, claro e escuro, com os mesmos valores do site.</p>
+    <div class="tk-grp"><h3>Botões</h3><p>Principal azul (fundo #010146 no claro, #23237A no escuro), verde-limão com texto azul-escuro e contorno.</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="tk-row"><span class="tb tb-blue">Falar com especialista</span><span class="tb tb-lime">Simular agora</span><span class="tb tb-line">Saiba mais</span></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="tk-row"><span class="tb tb-blue">Falar com especialista</span><span class="tb tb-lime">Simular agora</span><span class="tb tb-line">Saiba mais</span></div></div></div></div>
+    <div class="tk-grp"><h3>Cartões de produto</h3><p>Normal, em destaque (faixa rosa no topo, borda mais forte e seta rosa) e cartão azul (faixa e seta verde-limão).</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="pcard "><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg></span><div><b>Crédito</b><p>Normal: borda fina, seta neutra</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div><div class="pcard hl"><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-sh"/></svg></span><div><b>Seguros</b><p>Destaque: faixa rosa, borda forte, seta rosa</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div><div class="pcard bl"><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Consórcio</b><p>Cartão azul: faixa e seta verde-limão</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="pcard "><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg></span><div><b>Crédito</b><p>Normal: borda fina, seta neutra</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div><div class="pcard hl"><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-sh"/></svg></span><div><b>Seguros</b><p>Destaque: faixa rosa, borda forte, seta rosa</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div><div class="pcard bl"><span class="ci"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Consórcio</b><p>Cartão azul: faixa e seta verde-limão</p></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></span></div></div></div></div>
+    <div class="tk-grp"><h3>Carrossel do celular</h3><p>Bolinhas com a ativa em rosa e alongada, mais setas azuis nos lados.</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="car"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-chl"/></svg></span><div class="mid"><div class="mini"><b>Seguro de vida</b><p>Proteção para quem você ama</p></div><div class="cdots"><i></i><i class="on"></i><i></i><i></i></div></div><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-chr"/></svg></span></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="car"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-chl"/></svg></span><div class="mid"><div class="mini"><b>Seguro de vida</b><p>Proteção para quem você ama</p></div><div class="cdots"><i></i><i class="on"></i><i></i><i></i></div></div><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-chr"/></svg></span></div></div></div></div>
+    <div class="tk-grp"><h3>Seletor Para você / Para empresas</h3><p>Ícone de pessoa e de lojinha. O botão ativo tem fundo azul.</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="segx" role="img" aria-label="Seletor Para você ou Para empresas"><span class="on"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>Para você</span><span><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg>Para empresas</span></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="segx" role="img" aria-label="Seletor Para você ou Para empresas"><span class="on"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>Para você</span><span><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg>Para empresas</span></div></div></div></div>
+    <div class="tk-grp"><h3>Menu de três risquinhos</h3><p>Cartões com ícone, título e descrição. O item Contato fica em azul com ícone verde-limão.</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div style="display:flex;justify-content:flex-end"><span class="hambx" aria-hidden="true"><i></i><i></i><i></i></span></div><div class="mm"><div class="a "><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg></span><div><b>Crédito</b><small>Consignado, FGTS e CLT</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div><div class="a "><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-sh"/></svg></span><div><b>Seguros</b><small>Vida, auto, casa e mais</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div><div class="a ct"><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><div><b>Contato</b><small>Fale com um especialista</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div></div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div style="display:flex;justify-content:flex-end"><span class="hambx" aria-hidden="true"><i></i><i></i><i></i></span></div><div class="mm"><div class="a "><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg></span><div><b>Crédito</b><small>Consignado, FGTS e CLT</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div><div class="a "><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-sh"/></svg></span><div><b>Seguros</b><small>Vida, auto, casa e mais</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div><div class="a ct"><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><div><b>Contato</b><small>Fale com um especialista</small></div><svg class="ic go" aria-hidden="true"><use href="#i-chr"/></svg></div></div></div></div></div>
+    <div class="tk-grp"><h3>Interruptor de tema</h3><p>Trilho cinza com bolinha branca no claro; trilho rosa no escuro.</p><div class="tk-pair"><div class="tk tk-l"><div class="lbl"><i></i>Modo claro</div><div class="thx"><span class="sw" aria-hidden="true"><i></i></span>Modo claro ativo</div></div><div class="tk tk-d"><div class="lbl"><i></i>Modo escuro</div><div class="thx"><span class="sw" aria-hidden="true"><i></i></span>Modo escuro ativo</div></div></div></div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section id="tipografia" class="alt">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="ey">08 · Tipografia</span>
       <h2>Montserrat, a mesma do site.</h2>
       <p>Gratuita no Google Fonts. Títulos em ExtraBold com espaçamento levemente fechado.</p>
     </div>
@@ -712,10 +844,10 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
 </section>
 
 <!-- UNIFORMES -->
-<section id="uniformes" class="alt">
+<section id="uniformes">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">08 · Uniformes</span>
+      <span class="ey">09 · Uniformes</span>
       <h2>Camisetas e polos da equipe.</h2>
       <p>Modelos para baixar, ficha técnica, tecidos e a cor exata do silk, para a confecção sair igual à marca.</p>
     </div>
@@ -851,10 +983,10 @@ Enviar prova física (ou foto do silk no tecido) para aprovação antes de produ
 </section>
 
 <!-- USO -->
-<section id="uso">
+<section id="uso" class="alt">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">09 · Diretrizes de uso</span>
+      <span class="ey">10 · Diretrizes de uso</span>
       <h2>Para a marca parecer sempre a mesma.</h2>
     </div>
     <div class="ex">
@@ -883,10 +1015,10 @@ Enviar prova física (ou foto do silk no tecido) para aprovação antes de produ
 </section>
 
 <!-- CONTATO -->
-<section id="contato" class="alt">
+<section id="contato">
   <div class="wrap">
     <div class="sec-h">
-      <span class="ey">10 · Dados e canais oficiais</span>
+      <span class="ey">11 · Dados e canais oficiais</span>
       <h2>Informações para usar em qualquer material.</h2>
     </div>
     <div class="ct-grid">
