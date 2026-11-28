@@ -54,7 +54,30 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav{display:none;gap:2px;margin-left:12px}
 .nav a{white-space:nowrap;padding:8px 10px;border-radius:8px;font-weight:600;font-size:.86rem;color:var(--navy);transition:background .2s}
 .nav a:hover{background:var(--grey)}
-@media(min-width:1080px){.nav{display:flex}}
+@media(min-width:1180px){.nav{display:flex}.menu-btn,.drawer{display:none!important}}
+.nav a.on,.drawer a.on{background:var(--navy);color:#fff}
+.nav a.on:hover{background:var(--navy)}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:12px;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:.85rem;transition:background .2s,color .2s}
+.menu-btn:hover,.menu-btn[aria-expanded="true"]{background:var(--navy);color:#fff}
+.menu-btn .bars{width:18px;height:12px;position:relative;display:block}
+.menu-btn .bars::before,.menu-btn .bars::after,.menu-btn .bars i{content:"";position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform .3s var(--ease),opacity .2s,top .3s var(--ease)}
+.menu-btn .bars::before{top:0}.menu-btn .bars i{top:5px}.menu-btn .bars::after{top:10px}
+.menu-btn[aria-expanded="true"] .bars::before{top:5px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars i{opacity:0}
+.menu-btn[aria-expanded="true"] .bars::after{top:5px;transform:rotate(-45deg)}
+.drawer{position:fixed;inset:72px 0 0 0;z-index:49;background:rgba(1,1,70,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer .panel{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 24px 50px -20px rgba(1,1,70,.35);max-height:calc(100vh - 72px);max-height:calc(100dvh - 72px);overflow-y:auto;padding:14px 0 22px;transform:translateY(-12px);transition:transform .3s var(--ease)}
+.drawer.open .panel{transform:none}
+.drawer ul{list-style:none;padding:0;display:grid;gap:4px}
+@media(min-width:620px){.drawer ul{grid-template-columns:1fr 1fr;gap:6px 14px}}
+.drawer a.it{display:flex;align-items:center;gap:14px;min-height:52px;padding:10px 14px;border-radius:12px;font-weight:700;font-size:1rem;color:var(--navy);transition:background .2s}
+.drawer a.it:hover{background:var(--grey)}
+.drawer a.it small{font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--pink);min-width:22px}
+.drawer a.it.on small{color:var(--lime)}
+.drawer .go{margin-top:14px;display:flex}
+.drawer .go .btn{flex:1}
+body.nolock{overflow:hidden}
 .sp{flex:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:14px 24px;border-radius:12px;font-weight:700;font-size:.92rem;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;min-height:48px;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
@@ -194,7 +217,7 @@ h3{font-size:1.05rem;color:var(--navy);letter-spacing:-.01em;line-height:1.3}
 .bio .copy{position:absolute;right:14px;top:14px}
 .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
 .btn-ghost:hover{background:#fff;color:var(--navy)}
-.cover img{border-radius:12px;border:1px solid var(--line);width:100%;height:auto}
+.cover img{height:auto;border-radius:12px;border:1px solid var(--line);width:100%;height:auto}
 .cover .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
 .cover .meta p{font-size:.82rem;color:var(--muted)}
 .safe{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;font-size:.9rem;color:var(--muted)}
@@ -356,13 +379,20 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Mangos, início do kit"><img src="assets/logos/mangos-logo-azul-500.png?v=3" alt="mangos." width="130" height="25"></a>
     <nav class="nav" aria-label="Seções do kit">
-      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Foto de perfil</a><a href="#redes">Redes sociais</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#uniformes">Uniformes</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
+      <a href="#marca">Marca</a><a href="#logos">Logos</a><a href="#favicon">Favicon</a><a href="#perfil">Perfil</a><a href="#redes">Redes</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#uniformes">Uniformes</a><a href="#uso">Uso</a><a href="#contato">Contato</a>
     </nav>
     <div class="sp"></div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menu"><span class="bars" aria-hidden="true"><i></i></span><span>Menu</span></button>
     <a class="btn btn-navy" href="downloads/mangos-kit-completo.zip" download><svg class="ic"><use href="#i-dl"/></svg><span class="lbl">Baixar kit completo</span></a>
   </div>
 </header>
 
+<div class="drawer" id="mnav" aria-hidden="true">
+  <div class="panel"><div class="wrap">
+    <nav aria-label="Menu do kit"><ul><li><a class="it" href="#marca"><small>01</small>Quem somos</a></li><li><a class="it" href="#logos"><small>02</small>Logomarca</a></li><li><a class="it" href="#favicon"><small>03</small>Favicon e ícones</a></li><li><a class="it" href="#perfil"><small>04</small>Foto de perfil</a></li><li><a class="it" href="#redes"><small>05</small>Redes sociais</a></li><li><a class="it" href="#cores"><small>06</small>Cores</a></li><li><a class="it" href="#tipografia"><small>07</small>Tipografia</a></li><li><a class="it" href="#uniformes"><small>08</small>Uniformes</a></li><li><a class="it" href="#uso"><small>09</small>Diretrizes de uso</a></li><li><a class="it" href="#contato"><small>10</small>Contato</a></li></ul></nav>
+    <div class="go"><a class="btn btn-pink" href="downloads/mangos-kit-completo.zip" download><svg class="ic"><use href="#i-dl"/></svg>Baixar kit completo (.zip)</a></div>
+  </div></div>
+</div>
 <main id="topo">
 <!-- HERO -->
 <div class="hero">
@@ -457,24 +487,24 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
       <p style="margin:6px 0 0;font-size:.88rem;color:var(--muted);max-width:52em">Três descritores oficiais, cada um nas quatro cores. Use o que melhor representa o material: nas versões brancas e verdes, aplique sobre azul noturno.</p>
       <div style="margin-top:28px"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px"><h3>Assessoria Financeira e Seguros</h3><span class="pill">Assinatura institucional</span></div>
       <div class="grid g2">
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, azul" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, rosa" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, branca" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, verde" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, azul" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-azul-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, rosa" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-rosa-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, branca" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-branco-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-1000.png?v=3" alt="Mangos, Assessoria Financeira e Seguros, verde" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-e-seguros-verde-1000.png" download>1000</a></div></div>
       </div></div>
       <div style="margin-top:28px"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px"><h3>Corretora de Seguros</h3><span class="pill">Materiais de seguros</span></div>
       <div class="grid g2">
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-azul-1000.png?v=3" alt="Mangos, Corretora de Seguros, azul" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-azul-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-1000.png?v=3" alt="Mangos, Corretora de Seguros, rosa" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-branco-1000.png?v=3" alt="Mangos, Corretora de Seguros, branca" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-branco-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-verde-1000.png?v=3" alt="Mangos, Corretora de Seguros, verde" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-verde-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-azul-1000.png?v=3" alt="Mangos, Corretora de Seguros, azul" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-azul-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-1000.png?v=3" alt="Mangos, Corretora de Seguros, rosa" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-rosa-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-branco-1000.png?v=3" alt="Mangos, Corretora de Seguros, branca" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-branco-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-corretora-de-seguros-verde-1000.png?v=3" alt="Mangos, Corretora de Seguros, verde" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-corretora-de-seguros-verde-1000.png" download>1000</a></div></div>
       </div></div>
       <div style="margin-top:28px"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px"><h3>Assessoria Financeira</h3><span class="pill">Materiais de crédito e finanças</span></div>
       <div class="grid g2">
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-azul-1000.png?v=3" alt="Mangos, Assessoria Financeira, azul" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-azul-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-rosa-1000.png?v=3" alt="Mangos, Assessoria Financeira, rosa" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-rosa-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-branco-1000.png?v=3" alt="Mangos, Assessoria Financeira, branca" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-branco-1000.png" download>1000</a></div></div>
-        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-verde-1000.png?v=3" alt="Mangos, Assessoria Financeira, verde" width="220" height="44" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-verde-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-azul-1000.png?v=3" alt="Mangos, Assessoria Financeira, azul" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-azul-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Azul 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-azul-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-w" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-rosa-1000.png?v=3" alt="Mangos, Assessoria Financeira, rosa" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-rosa-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Rosa 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-rosa-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-branco-1000.png?v=3" alt="Mangos, Assessoria Financeira, branca" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-branco-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Branca 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-branco-1000.png" download>1000</a></div></div>
+        <div class="lc"><div class="logo-cell bg-n" style="min-height:150px"><img src="assets/logos/mangos-assinatura-assessoria-financeira-verde-1000.png?v=3" alt="Mangos, Assessoria Financeira, verde" width="1000" height="191" loading="lazy"></div><div class="chips"><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-verde-2000.png" download><svg class="ic"><use href="#i-dl"/></svg>Verde 2000</a><a class="chip" href="assets/logos/mangos-assinatura-assessoria-financeira-verde-1000.png" download>1000</a></div></div>
       </div></div>
     </div>
 
@@ -603,10 +633,10 @@ a.ct-i:hover{transform:translateY(-2px);border-color:var(--navy)}
       <p>Modelos prontos nos formatos de cada rede. Para a foto de perfil, veja a seção anterior.</p>
     </div>
     <div class="grid g2">
-      <div class="cover"><img src="assets/social/capa-linkedin-1584x396.png?v=3" alt="Capa LinkedIn" loading="lazy"><div class="meta"><p><b>LinkedIn</b> · 1584 × 396</p><a class="chip" href="assets/social/capa-linkedin-1584x396.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
-      <div class="cover"><img src="assets/social/capa-facebook-1640x624.png?v=3" alt="Capa Facebook" loading="lazy"><div class="meta"><p><b>Facebook</b> · 1640 × 624 (vale para Google Meu Negócio, recortando)</p><a class="chip" href="assets/social/capa-facebook-1640x624.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
-      <div class="cover"><img src="assets/social/capa-youtube-2560x1440.png?v=3" alt="Capa YouTube" loading="lazy"><div class="meta"><p><b>YouTube</b> · 2560 × 1440</p><a class="chip" href="assets/social/capa-youtube-2560x1440.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
-      <div class="cover"><img src="assets/social/og-kit-1200x630.png?v=3" alt="Imagem de compartilhamento" loading="lazy"><div class="meta"><p><b>Compartilhamento de links</b> · 1200 × 630</p><a class="chip" href="assets/social/og-kit-1200x630.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
+      <div class="cover"><img src="assets/social/capa-linkedin-1584x396.png?v=3" alt="Capa LinkedIn" width="1584" height="396" loading="lazy"><div class="meta"><p><b>LinkedIn</b> · 1584 × 396</p><a class="chip" href="assets/social/capa-linkedin-1584x396.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
+      <div class="cover"><img src="assets/social/capa-facebook-1640x624.png?v=3" alt="Capa Facebook" width="1640" height="624" loading="lazy"><div class="meta"><p><b>Facebook</b> · 1640 × 624 (vale para Google Meu Negócio, recortando)</p><a class="chip" href="assets/social/capa-facebook-1640x624.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
+      <div class="cover"><img src="assets/social/capa-youtube-2560x1440.png?v=3" alt="Capa YouTube" width="2560" height="1440" loading="lazy"><div class="meta"><p><b>YouTube</b> · 2560 × 1440</p><a class="chip" href="assets/social/capa-youtube-2560x1440.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
+      <div class="cover"><img src="assets/social/og-kit-1200x630.png?v=3" alt="Imagem de compartilhamento" width="1200" height="630" loading="lazy"><div class="meta"><p><b>Compartilhamento de links</b> · 1200 × 630</p><a class="chip" href="assets/social/og-kit-1200x630.png" download><svg class="ic"><use href="#i-dl"/></svg>PNG</a></div></div>
     </div>
     <div class="safe" style="margin-top:18px"><b>Dica de área segura:</b> as redes cortam as bordas e sobrepõem a foto de perfil no canto inferior esquerdo. Por isso o conteúdo das capas fica centralizado e longe das laterais.</div>
     <div style="margin-top:20px"><a class="btn btn-navy btn-sm" href="downloads/mangos-capas-redes.zip" download><svg class="ic"><use href="#i-dl"/></svg>Todas as capas (.zip)</a></div>
@@ -884,6 +914,20 @@ Enviar prova física (ou foto do silk no tecido) para aprovação antes de produ
 (function(){
   var h=document.getElementById('hdr');
   function s(){h.classList.toggle('solid',window.scrollY>8)} s(); addEventListener('scroll',s,{passive:true});
+  /* menu (celular/tablet) + destaque da seção atual */
+  var mb=document.getElementById('menuBtn'),dr=document.getElementById('mnav');
+  function setMenu(o){mb.setAttribute('aria-expanded',o?'true':'false');mb.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');dr.classList.toggle('open',o);dr.setAttribute('aria-hidden',o?'false':'true');document.body.classList.toggle('nolock',o)}
+  mb.addEventListener('click',function(){setMenu(mb.getAttribute('aria-expanded')!=='true')});
+  dr.addEventListener('click',function(e){if(e.target===dr||e.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  addEventListener('resize',function(){if(innerWidth>=1180)setMenu(false)});
+  var links=document.querySelectorAll('.nav a,.drawer a.it'),secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  function spy(){
+    var y=scrollY+120,cur='';
+    secs.forEach(function(sc){if(sc.offsetTop<=y)cur=sc.id});
+    links.forEach(function(a){var on=cur&&a.getAttribute('href')==='#'+cur;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  }
+  spy();addEventListener('scroll',spy,{passive:true});
   var t=document.getElementById('toast'),tt;
   function toast(m){t.textContent=m||'Copiado!';t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},1600)}
   function copy(txt){
