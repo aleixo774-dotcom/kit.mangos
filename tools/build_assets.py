@@ -112,3 +112,46 @@ for nome, c in cores.items():
         t.resize((w, round(t.height*w/t.width)), LANCZOS).save(f"{lg}/mangos-logo-{nome}-{w}.png")
 a_word.save(f"{R}/tools/fonte/_wordmark_mask.png")
 print("wordmark", a_word.size, "bbox", bb)
+
+
+# ---------- 5. símbolo "m·" (PNG transparente + SVG), claro e escuro (com contorno) ----------
+import numpy as np, potrace
+sb = f"{A}/simbolo"; os.makedirs(sb, exist_ok=True)
+
+def ring_overlay(size, radius=0.22, alpha=0.22):
+    """contorno fino branco (22%) de 1px a cada 96px, desenhado na borda interna"""
+    S = 4; N = size*S; w = max(1, round(size/96*S))
+    outer = Image.new("L", (N, N), 0); ImageDraw.Draw(outer).rounded_rectangle([0,0,N-1,N-1], radius=int(N*radius), fill=255)
+    inner = Image.new("L", (N, N), 0); ImageDraw.Draw(inner).rounded_rectangle([w,w,N-1-w,N-1-w], radius=max(0,int(N*radius)-w), fill=255)
+    ring = ImageChops.subtract(outer, inner).point(lambda v: int(v*alpha))
+    o = Image.new("RGBA", (N, N), (255,255,255,0)); o.putalpha(ring)
+    return o.resize((size, size), LANCZOS)
+
+for sz in (96, 192, 512, 1024):
+    base = mark_on(sz, AZUL, scale=0.72, rounded=0.22)
+    base.save(f"{sb}/simbolo-mangos-{sz}.png")
+    dk = base.copy(); dk.alpha_composite(ring_overlay(sz)); dk.save(f"{sb}/simbolo-mangos-escuro-{sz}.png")
+
+# SVG: glifo vetorizado (potrace) sobre quadrado arredondado
+gm = glyph.resize((1448//1, round(gh*1448/gw)), LANCZOS) if False else glyph
+arr = np.array(gm) > 127
+path = potrace.Bitmap(~arr).trace(turdsize=20, turnpolicy=potrace.POTRACE_TURNPOLICY_MINORITY, alphamax=1.0, opticurve=True, opttolerance=0.2)
+parts = []
+for c in path:
+    fs = c.start_point; d = [f"M{fs.x:.1f},{fs.y:.1f}"]
+    for sg in c.segments:
+        if sg.is_corner: d.append(f"L{sg.c.x:.1f},{sg.c.y:.1f}L{sg.end_point.x:.1f},{sg.end_point.y:.1f}")
+        else: d.append(f"C{sg.c1.x:.1f},{sg.c1.y:.1f} {sg.c2.x:.1f},{sg.c2.y:.1f} {sg.end_point.x:.1f},{sg.end_point.y:.1f}")
+    d.append("Z"); parts.append("".join(d))
+GD = "".join(parts)
+def symbol_svg(dark):
+    V = 1024; k = 0.72*V/gw; ox = (V-gw*k)/2; oy = (V-gh*k)/2; rx = V*0.22
+    ring = ""
+    if dark:
+        w = V/96; ring = f'<rect x="{w/2:.2f}" y="{w/2:.2f}" width="{V-w:.2f}" height="{V-w:.2f}" rx="{rx-w/2:.2f}" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="{w:.2f}"/>'
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {V} {V}" width="{V}" height="{V}"><title>mangos. símbolo</title>'
+            f'<rect width="{V}" height="{V}" rx="{rx:.1f}" fill="#010146"/>{ring}'
+            f'<g transform="translate({ox:.2f},{oy:.2f}) scale({k:.5f})"><path d="{GD}" fill="#fff" fill-rule="evenodd"/></g></svg>')
+open(f"{sb}/simbolo-mangos.svg", "w").write(symbol_svg(False))
+open(f"{sb}/simbolo-mangos-escuro.svg", "w").write(symbol_svg(True))
+print("símbolo ok:", sorted(os.listdir(sb)))

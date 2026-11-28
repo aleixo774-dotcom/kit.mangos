@@ -102,6 +102,7 @@ for m in MODELOS:
 LOGOS = {"verde": VERDE, "rosa": ROSA, "azul": AZUL, "branco": BRANCO}
 for n, c in LOGOS.items():
     open(f"{U}/arte-silk/mangos-silk-{n}.svg", "w").write(svg_logo(c))
+    open(f"{R}/assets/logos/mangos-logo-{n}.svg", "w").write(svg_logo(c))
 
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=os.environ.get("CHROMIUM"), args=["--no-sandbox"])
